@@ -6,21 +6,17 @@ import org.lwjgl.opencl.{CL10, CL12, CL20}
 import CL10._
 import CL12._
 import CL20._
- import com.thoughtworks.deeplearning.DifferentiableKernel.DifferentiableExpression
-import com.thoughtworks.future.Future
-import com.thoughtworks.future.sde.task,task.AwaitOps
+import com.thoughtworks.deeplearning.DifferentiableKernel.DifferentiableExpression
 import org.lwjgl.BufferUtils
 import org.scalatest.{AsyncFreeSpec, FreeSpec, Matchers}
 import shapeless.HNil
-import com.thoughtworks.future.concurrent.Converters._
 
 /**
   * @author 杨博 (Yang Bo) &lt;pop.atry@gmail.com&gt;
   */
 class DifferentiableKernelSpec extends AsyncFreeSpec with Matchers {
 
-
-  "*" in Future.completeWith {
+  "*" in {
     val platform = OpenCL.platforms.head
 
     val device = platform.devices.maxBy { device =>
